@@ -1,0 +1,45 @@
+{
+  "name": "gatsby-theme-catalyst-onepage",
+  "description": "Extends the base catalyst core theme to create a one page Gatsby theme",
+  "version": "0.0.1",
+  "author": "Eric Howey <ehowey@gmail.com>",
+  "dependencies": {
+    "gatsby": "^2.8.2",
+    "gatsby-plugin-compile-es6-packages": "^1.1.0",
+    "gatsby-theme-catalyst-core": "^0.0.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "gatsby": "^2.8.2",
+    "prettier": "^1.17.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "peerDependencies": {
+    "gatsby": "^2.8.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-theme"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "clean": "gatsby clean",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ehowey/gatsby-theme-catalyst-onepage"
+  },
+  "bugs": {
+    "url": "https://github.com/ehowey/gatsby-theme-catalyst-onepage/issues"
+  }
+}
