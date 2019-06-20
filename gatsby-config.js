@@ -31,7 +31,7 @@ module.exports = {
       {
         resolve: "gatsby-plugin-compile-es6-packages",
         options: {
-          modules: ["gatsby-theme-catalyst-core"],
+          modules: ["gatsby-theme-catalyst-onepage"],
         },
       },
       {
