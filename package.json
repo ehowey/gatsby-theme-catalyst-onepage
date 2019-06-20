@@ -6,9 +6,12 @@
   "dependencies": {
     "gatsby": "^2.8.2",
     "gatsby-plugin-compile-es6-packages": "^1.1.0",
+    "gatsby-source-filesystem": "^2.0.39",
     "gatsby-theme-catalyst-core": "^0.0.5",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-anchor-link-smooth-scroll": "^1.0.12",
+    "react-dom": "^16.8.6",
+    "react-scrollspy": "^3.4.0"
   },
   "devDependencies": {
     "gatsby": "^2.8.2",
