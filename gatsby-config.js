@@ -5,16 +5,22 @@ module.exports = {
     author: `Eric Howey`,
     menuLinks:[
           {
-            name:'Page 1',
-            link:'/page-1'
+            name:'Home',
+            link:'/'
+          }
+        ],
+    anchorLinks:[
+          {
+            name:'Anchor 1',
+            link:'#anchor1'
           },
           {
-            name:'Page 2',
-            link:'/page-2'
+            name:'Anchor 2',
+            link:'#anchor2'
           },
           {
-            name:'Page 3',
-            link:'/page-3'
+            name:'Anchor 3',
+            link:'#anchor3'
           }
             ]
   },
@@ -27,9 +33,13 @@ module.exports = {
         options: {
           modules: ["gatsby-theme-catalyst-core"],
         },
-    }
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+      },
+      {
+        resolve: 'gatsby-source-filesystem',
+        options: {
+            name: 'src',
+            path: `${__dirname}/src/`
+        }
+      }
     ]
 }
