@@ -7,7 +7,7 @@
     "gatsby": "^2.10.0",
     "gatsby-plugin-compile-es6-packages": "^1.1.0",
     "gatsby-source-filesystem": "^2.1.0",
-    "gatsby-theme-catalyst-core": "^0.0.5",
+    "gatsby-theme-catalyst-core": "^0.0.7",
     "react": "^16.8.6",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "^16.8.6",
