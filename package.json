@@ -1,7 +1,7 @@
 {
   "name": "gatsby-theme-catalyst-onepage",
   "description": "Extends the base catalyst core theme to create a one page Gatsby theme",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Eric Howey <ehowey@gmail.com>",
   "dependencies": {
     "gatsby": "^2.10.0",
