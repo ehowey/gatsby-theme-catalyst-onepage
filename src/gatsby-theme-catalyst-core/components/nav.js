@@ -91,7 +91,7 @@ const siteNav = (props) => {
       `}
       render={data => (
         <Nav>
-          <AnchorList items={data.site.siteMetadata.anchorLinks.map(spy => {return spy.link.replace(/#/g,"")})} mobileMenuOpen={props.open} currentClassName={'active'} offset={0}>
+          <AnchorList items={data.site.siteMetadata.anchorLinks.map(spy => {return spy.link.replace(/#/g,"")})} mobileMenuOpen={props.open} currentClassName={'active'} offset={-40}>
             {data.site.siteMetadata.anchorLinks.map(link => (
             <AnchorListItem key={link.name}>
               <ALink href={link.link} onClick={props.action} mobileMenuOpen={props.open} offset='80'>
