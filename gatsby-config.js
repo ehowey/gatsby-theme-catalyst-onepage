@@ -24,16 +24,8 @@ module.exports = {
           }
             ]
   },
-    __experimentalThemes: [
-        'gatsby-theme-catalyst-core'
-    ],
-    plugins: [ 
-      {
-        resolve: "gatsby-plugin-compile-es6-packages",
-        options: {
-          modules: ["gatsby-theme-catalyst-onepage"],
-        },
-      },
+    plugins: [
+      'gatsby-theme-catalyst-core',
       {
         resolve: 'gatsby-source-filesystem',
         options: {
