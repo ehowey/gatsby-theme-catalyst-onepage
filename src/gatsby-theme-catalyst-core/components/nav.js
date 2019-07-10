@@ -1,81 +1,10 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { StaticQuery, graphql } from "gatsby"
-import styled from 'styled-components';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Scrollspy from 'react-scrollspy';
 
-//Nav Styles - Start
-const Nav = styled.nav`
-grid-column: 1 / -1;
-grid-row: 2 / 3;
-justify-self: start;
-align-self: center;
-margin-left: 1rem;
-
-@media (min-width: ${props => props.theme.screen.tablet}) {
-grid-column: 2 / 3;
-grid-row: 1 / 2;
-justify-self: end;
-margin-left: 0;
-}
-`;
-
-const AnchorList = styled(Scrollspy)`
-display: none;
-list-style: none;
-margin: 0;
-
-@media (min-width: ${props => props.theme.screen.tablet}) {
-display: flex;
-flex-direction: row;
-}
-
-${({ mobileMenuOpen }) =>
-  mobileMenuOpen &&
-  `
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 1rem;
-
-    > ${AnchorListItem} {
-      margin: 0;
-      margin-top: 1rem;
-    }
-  `};
-
-.active {
-    font-weight: 700;
-  }
-`;
-
-const AnchorListItem = styled.li`
-  margin: 0 0.75em;
-`;
-
-const ALink = styled(AnchorLink)`
-color: ${props => props.theme.color.textBlack};
-padding: 1rem 0.5rem;
-text-decoration: none;
-
-${({ mobileMenuOpen }) =>
-  mobileMenuOpen &&
-  `
-    color: white;
-  `};
-
-@media (min-width: ${props => props.theme.screen.tablet}) {
-font-size: 90%;
-}
-
-@media (min-width: ${props => props.theme.screen.laptop}) {
-font-size: 100%;
-}
-`
-//Nav Styles - End
-
-const siteNav = (props) => {
-
+const siteNav = props => {
   return (
     <StaticQuery
       query={graphql`
@@ -91,17 +20,57 @@ const siteNav = (props) => {
       }
       `}
       render={data => (
-        <Nav>
-          <AnchorList items={data.site.siteMetadata.anchorLinks.map(spy => {return spy.link.replace(/#/g,"")})} mobileMenuOpen={props.open} currentClassName={'active'} offset={-40}>
+        <nav
+          {...props}
+          sx={{
+            gridColumn: ["1 / -1", "2 / 3", null],
+            gridRow: ["2 / 3", "1 / 2", null],
+            justifySelf: ["center", "end", null],
+            alignSelf: "center",
+            height: [props.open ? "calc(100vh - 60px)" : 0, "auto", null],
+            marginTop: [props.open ? "1rem": 0, 0, null],
+          }}
+        >
+          <Scrollspy
+            {...props}
+            sx={{
+              display: [props.open ? "flex" : "none", "flex", null],
+              flexDirection: ["column", "row", null],
+              listStyle: "none",
+              margin: 0,
+
+              ".active": {
+                fontWeight: "bold"
+              }
+            }}
+            items={data.site.siteMetadata.anchorLinks.map(spy => {return spy.link.replace(/#/g,"")})}
+            currentClassName={'active'}
+            offset={-40}>
             {data.site.siteMetadata.anchorLinks.map(link => (
-            <AnchorListItem key={link.name}>
-              <ALink href={link.link} onClick={props.action} mobileMenuOpen={props.open} offset='80'>
+            <li
+            sx={{
+              my: 0,
+              mx: 1
+            }}
+            key={link.name}>
+              <AnchorLink
+                {...props}
+                sx={{
+                  color: props.open ? "header.textOpen" : "header.text",
+                  textDecoration: "none",
+                  py: 2,
+                  px: 1
+                }}
+                href={link.link}
+                onClick={props.action}
+                offset='80'
+              >
                 {link.name}
-              </ALink>
-            </AnchorListItem>
+              </AnchorLink>
+            </li>
             ))}
-          </AnchorList>
-      </Nav>
+          </Scrollspy>
+      </nav>
     )}
     />
     );
