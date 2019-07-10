@@ -1,4 +1,5 @@
-import React from 'react';
+/** @jsx jsx */
+import { jsx } from "theme-ui"
 import { StaticQuery, graphql } from "gatsby"
 import styled from 'styled-components';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
