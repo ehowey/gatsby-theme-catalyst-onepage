@@ -1,1 +1,1 @@
-//boop
+export { default as onePageTheme } from './src/gatsby-plugin-theme-ui';
