@@ -1,13 +1,11 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { StaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Scrollspy from 'react-scrollspy';
 
 const siteNav = props => {
-  return (
-    <StaticQuery
-      query={graphql`
+  const data = useStaticQuery(graphql`
       query {
         site {
           siteMetadata {
@@ -18,8 +16,8 @@ const siteNav = props => {
           }
         }
       }
-      `}
-      render={data => (
+      `)
+      return(
         <nav
           {...props}
           sx={{
@@ -71,9 +69,7 @@ const siteNav = props => {
             ))}
           </Scrollspy>
       </nav>
-    )}
-    />
-    );
+    )
   }
 
 export default siteNav;
