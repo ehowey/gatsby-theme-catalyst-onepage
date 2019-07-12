@@ -28,6 +28,8 @@ const siteNav = props => {
             height: [props.open ? "calc(100vh - 60px)" : 0, "auto", null],
             marginTop: [props.open ? "1rem": 0, 0, null],
           }}
+          role="navigation"
+          aria-label="main-navigation"
         >
           <Scrollspy
             {...props}
@@ -43,14 +45,19 @@ const siteNav = props => {
             }}
             items={data.site.siteMetadata.anchorLinks.map(spy => {return spy.link.replace(/#/g,"")})}
             currentClassName={'active'}
-            offset={-40}>
+            offset={-40}
+            aria-label="menu-bar"
+            role="menubar"
+            >
             {data.site.siteMetadata.anchorLinks.map(link => (
             <li
             sx={{
               my: 0,
               mx: 1
             }}
-            key={link.name}>
+            key={link.name}
+            role="none"
+            >
               <AnchorLink
                 {...props}
                 sx={{
@@ -62,6 +69,7 @@ const siteNav = props => {
                 href={link.link}
                 onClick={props.action}
                 offset='80'
+                role="menuitem"
               >
                 {link.name}
               </AnchorLink>
