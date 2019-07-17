@@ -22,6 +22,7 @@ The Catalyst series of themes and starters for [GatsbyJS](https://www.gatsbyjs.o
 The following components (other than theme-ui) are modified from gatsby-theme-catalyst-core:
 
 **src/gatsby-theme-catalyst-core/components/nav.js**
+
 The main change in this theme is modification of the navigation element to provide built in support for single page scrolling navigation use `react-anchor-link-smooth-scroll` and `react-scrollspy`.  This allows the theme to track where the user is on the page and also to provide a smooth scrolling experience.  The navigation menu is automatically created from the `gatsby-config.js` file using the `anchorLinks` array.  There is not currently support for blended anchor links and standard internal links in the Nav menu however this is a planned feature.
 
 ## Installation and Use
