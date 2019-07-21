@@ -19,7 +19,6 @@ const siteNav = props => {
       `)
       return(
         <nav
-          {...props}
           sx={{
             gridColumn: ["1 / -1", "2 / 3", null],
             gridRow: ["2 / 3", "1 / 2", null],
@@ -32,7 +31,6 @@ const siteNav = props => {
           aria-label="main-navigation"
         >
           <Scrollspy
-            {...props}
             sx={{
               display: [props.open ? "flex" : "none", "flex", null],
               flexDirection: ["column", "row", null],
@@ -59,7 +57,6 @@ const siteNav = props => {
             role="none"
             >
               <AnchorLink
-                {...props}
                 sx={{
                   color: props.open ? "header.textOpen" : "header.text",
                   textDecoration: "none",
@@ -67,7 +64,7 @@ const siteNav = props => {
                   px: 1
                 }}
                 href={link.link}
-                onClick={props.action}
+                onClick={(e) => {props.action(e)}}
                 offset='80'
                 role="menuitem"
               >
