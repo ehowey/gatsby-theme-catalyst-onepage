@@ -1,10 +1,21 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import { jsx, useThemeUI } from "theme-ui"
 import { useStaticQuery, graphql } from "gatsby"
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Scrollspy from 'react-scrollspy';
 
 const siteNav = props => {
+  const {theme} = useThemeUI()
+  const w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0],x=w.innerWidth||e.clientWidth||g.clientWidth
+  const screenWidth = x
+  let navoffset = parseInt(theme.sizes.headerHeight)
+
+  if (screenWidth >= parseInt(theme.breakpoints[0])) {
+    navoffset = parseInt(theme.sizes.headerHeightTablet)
+  } else if (screenWidth >= parseInt(theme.breakpoints[1])) {
+    navoffset = parseInt(theme.sizes.headerHeightLaptop)
+  }
+
   const data = useStaticQuery(graphql`
       query {
         site {
@@ -43,9 +54,9 @@ const siteNav = props => {
             }}
             items={data.site.siteMetadata.anchorLinks.map(spy => {return spy.link.replace(/#/g,"")})}
             currentClassName={'active'}
-            offset={-40}
             aria-label="menu-bar"
             role="menubar"
+            offset={-Math.abs(navoffset)}
             >
             {data.site.siteMetadata.anchorLinks.map(link => (
             <li
@@ -61,12 +72,13 @@ const siteNav = props => {
                   color: props.open ? "header.textOpen" : "header.text",
                   textDecoration: "none",
                   py: 2,
-                  px: 1
+                  px: 1,
+                  mr: 2
                 }}
                 href={link.link}
                 onClick={(e) => {props.action(e)}}
-                offset='80'
                 role="menuitem"
+                offset={navoffset}
               >
                 {link.name}
               </AnchorLink>
