@@ -5,11 +5,12 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Scrollspy from 'react-scrollspy';
 
 const siteNav = props => {
+  if (typeof window !== 'undefined') {
+    let w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0],x=w.innerWidth||e.clientWidth||g.clientWidth
+    var screenWidth = x
+  }
   const {theme} = useThemeUI()
-  const w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0],x=w.innerWidth||e.clientWidth||g.clientWidth
-  const screenWidth = x
   let navoffset = parseInt(theme.sizes.headerHeight)
-
   if (screenWidth >= parseInt(theme.breakpoints[0])) {
     navoffset = parseInt(theme.sizes.headerHeightTablet)
   } else if (screenWidth >= parseInt(theme.breakpoints[1])) {
