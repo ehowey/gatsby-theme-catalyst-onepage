@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, useThemeUI } from "theme-ui"
 import { useStaticQuery, graphql } from "gatsby"
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll"
 
 const siteNav = props => {
   if (typeof window !== 'undefined') {
