@@ -10,7 +10,9 @@ const siteNav = props => {
     var screenWidth = x
   }
   const {theme} = useThemeUI()
+
   let navoffset = parseInt(theme.sizes.headerHeight)
+
   if (screenWidth >= parseInt(theme.breakpoints[0])) {
     navoffset = parseInt(theme.sizes.headerHeightTablet)
   } else if (screenWidth >= parseInt(theme.breakpoints[1])) {
@@ -53,7 +55,10 @@ const siteNav = props => {
                 fontWeight: "bold"
               }
             }}
-            items={data.site.siteMetadata.anchorLinks.map(spy => {return spy.link.replace(/#/g,"")})}
+            items={data.site.siteMetadata.anchorLinks.map(spy => {
+              const aLinks = spy.link.toLowerCase()
+              return aLinks.replace(/#/g,"")
+            })}
             currentClassName={'active'}
             aria-label="menu-bar"
             role="menubar"
@@ -76,7 +81,7 @@ const siteNav = props => {
                   px: 1,
                   mr: 2
                 }}
-                href={link.link}
+                href={link.link.toLowerCase()}
                 onClick={(e) => {props.action(e)}}
                 role="menuitem"
                 offset={navoffset}

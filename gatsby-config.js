@@ -2,27 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Catalyst Onepage`,
     description: `Extends the base catalyst core theme to create a one page Gatsby theme`,
-    author: `Eric Howey`,
-    menuLinks:[
-          {
-            name:'Home',
-            link:'/'
-          }
-        ],
-    anchorLinks:[
-          {
-            name:'Anchor 1',
-            link:'#anchor1'
-          },
-          {
-            name:'Anchor 2',
-            link:'#anchor2'
-          },
-          {
-            name:'Anchor 3',
-            link:'#anchor3'
-          }
-            ]
+    author: `Eric Howey`
   },
     plugins: [
       'gatsby-theme-catalyst-core',
