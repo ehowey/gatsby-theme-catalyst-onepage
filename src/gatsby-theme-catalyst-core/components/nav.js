@@ -1,8 +1,7 @@
 /** @jsx jsx */
 import { jsx, useThemeUI } from "theme-ui"
 import { useStaticQuery, graphql } from "gatsby"
-import AnchorLink from 'react-anchor-link-smooth-scroll';
-import Scrollspy from 'react-scrollspy';
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const siteNav = props => {
   if (typeof window !== 'undefined') {
@@ -44,7 +43,7 @@ const siteNav = props => {
           role="navigation"
           aria-label="main-navigation"
         >
-          <Scrollspy
+          <ul
             sx={{
               display: [props.open ? "flex" : "none", "flex", null],
               flexDirection: ["column", "row", null],
@@ -55,14 +54,8 @@ const siteNav = props => {
                 fontWeight: "bold"
               }
             }}
-            items={data.site.siteMetadata.anchorLinks.map(spy => {
-              const aLinks = spy.link.toLowerCase()
-              return aLinks.replace(/#/g,"")
-            })}
-            currentClassName={'active'}
             aria-label="menu-bar"
             role="menubar"
-            offset={-Math.abs(navoffset)}
             >
             {data.site.siteMetadata.anchorLinks.map(link => (
             <li
@@ -73,24 +66,29 @@ const siteNav = props => {
             key={link.name}
             role="none"
             >
-              <AnchorLink
+              <Link
                 sx={{
                   color: props.open ? "header.textOpen" : "header.text",
                   textDecoration: "none",
                   py: 2,
                   px: 1,
-                  mr: 2
+                  mr: 2,
+                  cursor: "pointer"
                 }}
-                href={link.link.toLowerCase()}
+                to={link.link.replace(/#/g,"").toLowerCase()}
                 onClick={(e) => {props.action(e)}}
                 role="menuitem"
-                offset={navoffset}
+                spy={true}
+                smooth={true}
+                activeClass="active"
+                duration={500}
+                offset={-Math.abs(navoffset)}
               >
                 {link.name}
-              </AnchorLink>
+              </Link>
             </li>
             ))}
-          </Scrollspy>
+          </ul>
       </nav>
     )
   }
