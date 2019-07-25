@@ -30,6 +30,12 @@ const siteNav = props => {
         }
       }
       `)
+      const {theme} = useThemeUI()
+      const headOpen = () => {
+        return (
+          window.innerHeight - parseInt(theme.sizes.headerHeight) + "px"
+        )
+      }
       return(
         <nav
           sx={{
@@ -37,7 +43,7 @@ const siteNav = props => {
             gridRow: ["2 / 3", "1 / 2", null],
             justifySelf: ["center", "end", null],
             alignSelf: "center",
-            height: [props.open ? "calc(100vh - 60px)" : 0, "auto", null],
+            height: [props.open ? headOpen() : 0, "auto", null],
             marginTop: [props.open ? "1rem": 0, 0, null],
           }}
           role="navigation"
