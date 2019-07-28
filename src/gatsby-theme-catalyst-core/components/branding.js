@@ -8,7 +8,7 @@ const scrollToTop = () => {
   scroll.scrollToTop();
 };
 
-const siteBranding = () => {
+const siteBranding = props => {
   const data = useStaticQuery(graphql`
     query {
       site {

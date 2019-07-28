@@ -34,7 +34,6 @@ const siteNav = props => {
       }
     }
   `);
-  const { theme } = useThemeUI();
   const headOpen = () => {
     return window.innerHeight - parseInt(theme.sizes.headerHeight) + "px";
   };
