@@ -54,6 +54,7 @@ const siteNav = props => {
         sx={{
           display: [props.open ? "flex" : "none", "flex", null],
           flexDirection: ["column", "row", null],
+          textAlign: ["center", "left", null],
           listStyle: "none",
           margin: 0,
 
