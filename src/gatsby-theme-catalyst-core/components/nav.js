@@ -2,6 +2,7 @@
 import { jsx, useThemeUI } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import { Link } from "react-scroll";
+import { SocialHeader } from "gatsby-theme-catalyst-core";
 
 const siteNav = props => {
   const { theme } = useThemeUI();
@@ -45,18 +46,45 @@ const siteNav = props => {
         justifySelf: ["center", "end", null],
         alignSelf: "center",
         height: [props.open ? headOpen() : 0, "auto", null],
-        mt: [props.open ? 2 : 0, 0, null]
+        mt: [props.open ? 2 : 0, 0, null],
+        display: "flex",
+        flexDirection: ["column", "row", null]
       }}
       role="navigation"
       aria-label="main-navigation"
     >
+      <div
+        sx={{
+          display: [props.open ? "flex" : "none", "flex", null],
+          mr: ["auto", 3, null],
+          ml: "auto",
+          mt: "0.25rem",
+          mb: [3, 0, null],
+
+          a: {
+            color: props.open ? "header.iconsOpen" : "header.icons",
+            mr: [3, 2, null],
+            height: theme => theme.sizes.iconsHeader,
+            textDecoration: "none"
+          },
+          "a:last-of-type": {
+            mr: 0
+          },
+          "a:hover": {
+            color: "header.iconsHover"
+          }
+        }}
+      >
+        <SocialHeader />
+      </div>
       <ul
         sx={{
           display: [props.open ? "flex" : "none", "flex", null],
           flexDirection: ["column", "row", null],
           textAlign: ["center", "left", null],
           listStyle: "none",
-          margin: 0,
+          m: 0,
+          p: 0,
 
           ".active::after": {
             position: "absolute",
