@@ -21,7 +21,9 @@ const navLinks = props => {
       }
     }
   `);
-  const is_root = window.location.pathname === "/"; //Equals true if we're at the root
+  if (typeof window !== "undefined") {
+    var is_root = window.location.pathname === "/"; //Equals true if we're at the root
+  }
 
   let navOffset = parseInt(theme.sizes.headerHeight);
 
