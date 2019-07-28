@@ -34,8 +34,11 @@ const navLinks = props => {
     var screenWidth = x;
   }
 
-  if (screenWidth >= parseInt(theme.breakpoints[0])) {
-    navOffset = parseInt(theme.sizes.headerHeightTablet);
+  if (
+    screenWidth >= parseInt(theme.breakpoints[0]) &&
+    screenWidth <= parseInt(theme.breakpoints[1])
+  ) {
+    navOffset = 2 * parseInt(theme.sizes.headerHeightTablet);
   } else if (screenWidth >= parseInt(theme.breakpoints[1])) {
     navOffset = parseInt(theme.sizes.headerHeightLaptop);
   }
