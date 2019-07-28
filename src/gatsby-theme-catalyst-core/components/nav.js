@@ -45,8 +45,7 @@ const siteNav = props => {
         justifySelf: ["center", "end", null],
         alignSelf: "center",
         height: [props.open ? headOpen() : 0, "auto", null],
-        mt: [props.open ? 2 : 0, 0, null],
-        mr: [0, 3, null]
+        mt: [props.open ? 2 : 0, 0, null]
       }}
       role="navigation"
       aria-label="main-navigation"
