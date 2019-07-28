@@ -21,11 +21,14 @@ const siteBranding = props => {
       }
     }
   `);
+
   const scrollToTop = () => {
-    if (is_root) {
-      scroll.scrollToTop();
-    } else {
-      window.location.href = "/";
+    if (typeof window !== "undefined") {
+      if (is_root) {
+        scroll.scrollToTop();
+      } else {
+        window.location.href = "/";
+      }
     }
   };
 
