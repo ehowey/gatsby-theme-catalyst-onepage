@@ -4,6 +4,12 @@ import { useStaticQuery, graphql } from "gatsby";
 import { Link } from "react-scroll";
 
 const siteNav = props => {
+  const { theme } = useThemeUI();
+  let navoffset = parseInt(theme.sizes.headerHeight);
+  const headOpen = () => {
+    return window.innerHeight - parseInt(theme.sizes.headerHeight) + "px";
+  };
+
   if (typeof window !== "undefined") {
     let w = window,
       d = document,
@@ -12,9 +18,6 @@ const siteNav = props => {
       x = w.innerWidth || e.clientWidth || g.clientWidth;
     var screenWidth = x;
   }
-  const { theme } = useThemeUI();
-
-  let navoffset = parseInt(theme.sizes.headerHeight);
 
   if (screenWidth >= parseInt(theme.breakpoints[0])) {
     navoffset = parseInt(theme.sizes.headerHeightTablet);
@@ -34,9 +37,6 @@ const siteNav = props => {
       }
     }
   `);
-  const headOpen = () => {
-    return window.innerHeight - parseInt(theme.sizes.headerHeight) + "px";
-  };
   return (
     <nav
       sx={{
@@ -45,7 +45,8 @@ const siteNav = props => {
         justifySelf: ["center", "end", null],
         alignSelf: "center",
         height: [props.open ? headOpen() : 0, "auto", null],
-        mt: [props.open ? 2 : 0, 0, null]
+        mt: [props.open ? 2 : 0, 0, null],
+        mr: [0, 3, null]
       }}
       role="navigation"
       aria-label="main-navigation"
@@ -57,8 +58,16 @@ const siteNav = props => {
           listStyle: "none",
           margin: 0,
 
-          ".active": {
-            fontWeight: "bold"
+          ".active::after": {
+            position: "absolute",
+            top: "100%",
+            left: "0",
+            width: "100%",
+            height: "5px",
+            backgroundColor: "secondary",
+            content: "''",
+            opacity: "1",
+            transform: "translateY(0px)"
           }
         }}
         aria-label="menu-bar"
@@ -67,7 +76,7 @@ const siteNav = props => {
         {data.site.siteMetadata.anchorLinks.map(link => (
           <li
             sx={{
-              my: 0,
+              my: [2, 0, null],
               mx: 1
             }}
             key={link.name}
@@ -79,8 +88,28 @@ const siteNav = props => {
                 textDecoration: "none",
                 py: 2,
                 px: 1,
-                mr: 2,
-                cursor: "pointer"
+                mr: [0, 3, null],
+                cursor: "pointer",
+                position: "relative",
+
+                "::after": {
+                  position: "absolute",
+                  top: "100%",
+                  left: "0",
+                  width: "100%",
+                  height: "1px",
+                  backgroundColor: "secondary",
+                  content: "''",
+                  opacity: "0",
+                  transition: "height 0.3s, opacity 0.3s, transform 0.3s",
+                  transform: "translateY(-10px)"
+                },
+
+                ":hover::after, :focus::after": {
+                  height: "5px",
+                  opacity: "1",
+                  transform: "translateY(0px)"
+                }
               }}
               to={link.link.replace(/#/g, "").toLowerCase()}
               onClick={e => {
