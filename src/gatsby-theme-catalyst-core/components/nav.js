@@ -91,6 +91,8 @@ const siteNav = props => {
                 mr: [0, 3, null],
                 cursor: "pointer",
                 position: "relative",
+                fontWeight: "bold",
+                letterSpacing: "1px",
 
                 "::after": {
                   position: "absolute",
