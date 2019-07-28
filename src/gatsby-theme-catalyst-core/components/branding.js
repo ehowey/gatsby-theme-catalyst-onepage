@@ -4,10 +4,6 @@ import Img from "gatsby-image";
 import { useStaticQuery, graphql } from "gatsby";
 import { animateScroll as scroll } from "react-scroll";
 
-const scrollToTop = () => {
-  scroll.scrollToTop();
-};
-
 const siteBranding = props => {
   const data = useStaticQuery(graphql`
     query {
@@ -25,6 +21,15 @@ const siteBranding = props => {
       }
     }
   `);
+  const scrollToTop = () => {
+    if (is_root) {
+      scroll.scrollToTop();
+    } else {
+      window.location.href = "/";
+    }
+  };
+
+  const is_root = window.location.pathname === "/"; //Equals true if we're at the root
   return (
     <div
       sx={{
