@@ -5,14 +5,11 @@ import { Link as AnchorLink } from "react-scroll";
 
 const navLinks = props => {
   const { theme } = useThemeUI();
+  let navOffset = parseInt(theme.sizes.headerHeight);
   const data = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
-          menuLinks {
-            name
-            link
-          }
           anchorLinks {
             name
             link
@@ -24,9 +21,6 @@ const navLinks = props => {
   if (typeof window !== "undefined") {
     var is_root = window.location.pathname === "/"; //Equals true if we're at the root
   }
-
-  let navOffset = parseInt(theme.sizes.headerHeight);
-
   if (typeof window !== "undefined") {
     let w = window,
       d = document,
@@ -35,7 +29,6 @@ const navLinks = props => {
       x = w.innerWidth || e.clientWidth || g.clientWidth;
     var screenWidth = x;
   }
-
   if (
     screenWidth >= parseInt(theme.breakpoints[0]) &&
     screenWidth <= parseInt(theme.breakpoints[1])
@@ -126,54 +119,6 @@ const navLinks = props => {
             </AnchorLink>
           </li>
         ))}
-        {data.site.siteMetadata.menuLinks.map(link => (
-          <li
-            sx={{
-              my: [2, 0, null],
-              mx: 1
-            }}
-            key={link.name}
-            role="none"
-          >
-            <Link
-              sx={{
-                color: props.open ? "header.textOpen" : "header.text",
-                textDecoration: "none",
-                py: 2,
-                px: 1,
-                mr: [0, 3, null],
-                cursor: "pointer",
-                position: "relative",
-                fontWeight: "bold",
-                letterSpacing: "1px",
-
-                "::after": {
-                  position: "absolute",
-                  top: "100%",
-                  left: "0",
-                  width: "100%",
-                  height: "1px",
-                  backgroundColor: "secondary",
-                  content: "''",
-                  opacity: "0",
-                  transition: "height 0.3s, opacity 0.3s, transform 0.3s",
-                  transform: "translateY(-10px)"
-                },
-
-                ":hover::after, :focus::after": {
-                  height: "5px",
-                  opacity: "1",
-                  transform: "translateY(0px)"
-                }
-              }}
-              to={link.link.toLowerCase()}
-              activeClassName="active"
-              role="menuitem"
-            >
-              {link.name}
-            </Link>
-          </li>
-        ))}
       </ul>
     );
   } else {
@@ -243,54 +188,6 @@ const navLinks = props => {
                 }
               }}
               to={"/" + link.link}
-              role="menuitem"
-            >
-              {link.name}
-            </Link>
-          </li>
-        ))}
-        {data.site.siteMetadata.menuLinks.map(link => (
-          <li
-            sx={{
-              my: [2, 0, null],
-              mx: 1
-            }}
-            key={link.name}
-            role="none"
-          >
-            <Link
-              sx={{
-                color: props.open ? "header.textOpen" : "header.text",
-                textDecoration: "none",
-                py: 2,
-                px: 1,
-                mr: [0, 3, null],
-                cursor: "pointer",
-                position: "relative",
-                fontWeight: "bold",
-                letterSpacing: "1px",
-
-                "::after": {
-                  position: "absolute",
-                  top: "100%",
-                  left: "0",
-                  width: "100%",
-                  height: "1px",
-                  backgroundColor: "secondary",
-                  content: "''",
-                  opacity: "0",
-                  transition: "height 0.3s, opacity 0.3s, transform 0.3s",
-                  transform: "translateY(-10px)"
-                },
-
-                ":hover::after, :focus::after": {
-                  height: "5px",
-                  opacity: "1",
-                  transform: "translateY(0px)"
-                }
-              }}
-              to={link.link.toLowerCase()}
-              activeClassName="active"
               role="menuitem"
             >
               {link.name}
