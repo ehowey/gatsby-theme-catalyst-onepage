@@ -3,11 +3,12 @@ import { jsx, useThemeUI } from "theme-ui";
 import NavLinks from "./navLinks";
 import { SocialHeader } from "gatsby-theme-catalyst-core";
 
-const siteNav = props => {
+const siteNav = (props, themeOptions) => {
   const { theme } = useThemeUI();
   const headOpen = () => {
     return window.innerHeight - parseInt(theme.sizes.headerHeight) + "px";
   }; //Used to calculate the height of the nav so it is exactly the height of the window
+  console.log(themeOptions);
   return (
     <nav
       sx={{
