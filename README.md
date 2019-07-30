@@ -5,6 +5,8 @@
 # create a new Gatsby site using the catalyst core starter site
 gatsby new my-catalyst-starter-onepage https://github.com/ehowey/gatsby-starter-catalyst-onepage
 ```
+[Read the Gatsby Quick Start Guide](https://www.gatsbyjs.org/docs/quick-start)
+
 **Overview**
 
 This is a child theme for `gatsby-theme-catalyst-core` which adds anchor link navigation and "onepage" functionality to the core theme. This would be ideal for a portfolio site or small brochure site. 
