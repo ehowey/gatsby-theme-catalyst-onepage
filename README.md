@@ -9,11 +9,7 @@ gatsby new my-catalyst-starter-onepage https://github.com/ehowey/gatsby-starter-
 
 **Overview**
 
-This is a child theme for `gatsby-theme-catalyst-core` which adds anchor link navigation and "onepage" functionality to the core theme. This would be ideal for a portfolio site or small brochure site. 
-
-## Dependencies
-
-* [Gatsby-Theme-Catalyst-Core](https://github.com/ehowey/gatsby-theme-catalyst-core): *Reading the core theme documentation is recommended because this explains most features and customizations options for the Catalyst series of themes and starters*
+This is a child theme for `gatsby-theme-catalyst-core` which adds anchor link navigation and "onepage" functionality to the core theme. This would be ideal for a portfolio site or small brochure site. [Documentation for the core theme](https://github.com/ehowey/gatsby-theme-catalyst-core) will be helpful in understanding the customization options that apply to all Catalyst themes and starters.
 
 ## Catalyst Themes and Starters
 
