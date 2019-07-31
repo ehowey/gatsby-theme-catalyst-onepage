@@ -19,7 +19,7 @@ In the `gatsby-config` file the onepage theme looks for an `anchorLinks` array t
 
 **Example sites based on this theme**
 
-[erichowey.dev](https://www.erichowey.dev)
+* [erichowey.dev](https://www.erichowey.dev)
 
 ## Catalyst Themes and Starters
 
