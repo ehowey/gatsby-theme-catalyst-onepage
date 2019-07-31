@@ -38,7 +38,7 @@ src/gatsby-theme-catalyst-core/components/navLinks.js
 src/gatsby-theme-catalyst-core/components/branding.js
 ```
 
-The main change in this theme is modification of the navigation element to provide built in support for single page scrolling navigation using `react-scroll`.  This allows the theme to track where the user is on the page and also to provide a smooth scrolling experience.  The navigation menu is automatically created from the `gatsby-config.js` file using the `anchorLinks` array.  There is not currently support for blended anchor links and standard internal links in the Nav menu however this is a planned feature. Links to other pages on site do work, just not in the navigation menu at this time.
+The main change in this theme is modification of the navigation element to provide built in support for single page scrolling navigation using `react-scroll`.  This allows the theme to track where the user is on the page and also to provide a smooth scrolling experience.  The navigation menu is automatically created from the `gatsby-config.js` file using the `anchorLinks` array.  There is not currently support for blended anchor links and standard internal links in the Nav menu however this is a planned feature. Links to other pages on site do work, and the nav menu is automatically adjusted to link back to the root page.
 
 The branding element had to be modified to provide scroll to top functionality on the main index page and link functionality on other pages in the site.  All settings remain the same as those used in `gatsby-theme-catalyst-core`
 
