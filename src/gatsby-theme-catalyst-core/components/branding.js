@@ -67,7 +67,7 @@ const siteBranding = props => {
       />
       <h1
         sx={{
-          fontSize: [4, 5, 6],
+          fontSize: [3, 5, 6],
           flex: "0 0 auto"
         }}
       >

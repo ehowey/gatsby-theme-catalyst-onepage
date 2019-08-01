@@ -6,7 +6,11 @@ import { SocialHeaderIcons, SocialLinks } from "gatsby-theme-catalyst-core";
 const siteNav = props => {
   const { theme } = useThemeUI();
   const headOpen = () => {
-    return window.innerHeight - parseInt(theme.sizes.headerHeight) + "px";
+    if (typeof window !== "undefined") {
+      return window.innerHeight - parseInt(theme.sizes.headerHeight) + "px";
+    } else {
+      return null;
+    }
   }; //Used to calculate the height of the nav so it is exactly the height of the window
   return (
     <nav
