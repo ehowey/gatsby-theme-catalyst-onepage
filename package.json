@@ -1,23 +1,23 @@
 {
   "name": "gatsby-theme-catalyst-onepage",
   "description": "Gatsby Theme - Child theme for the base catalyst core theme to create a one page site.",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "author": "Eric Howey <eric@erichowey.dev>",
   "dependencies": {
-    "gatsby-theme-catalyst-core": "^0.2.5",
+    "gatsby-theme-catalyst-core": "^0.2.6",
     "react-scroll": "^1.7.13"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.5.4",
     "babel-preset-gatsby": "^0.2.1",
-    "gatsby": "^2.13.74",
+    "gatsby": "^2.13.52",
     "prettier": "^1.18.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "peerDependencies": {
-    "gatsby": "^2.13.74",
+    "gatsby": "^2.13.52",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
